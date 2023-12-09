@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock1</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #10101E;
+            color: #2E94E3;
+            /* display: flex;
+            justify-content: center;
+            align-items: center; */
+            margin-top: 10%;
+        }
+
+        .time {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* font-size: 4rem; */
+            font-size: 15rem;
+        }
+
+        .month {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.5rem;
+        }
+
+        h1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: rgb(220, 220, 220);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 4rem;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1> Hello</h1>
+    <div class="time">
+        <span id="hr"></span>:
+        <span id="min"></span>:
+        <span id="sec"></span>
+        <span id="ampm">PM</span><br>
+    </div>
+
+    <div class="month">
+        <span id="day"></span> --
+        <span id="date"></span>/
+        <span id="month"></span>/
+        <span id="year"></span>
+    </div>
+
+
+    <script>
+        setInterval(() => {
+
+            var months = [
+                "JAN",
+                "FEB",
+                "MARCG",
+                "APRIL",
+                "MAY",
+                "JUNE",
+                "JULY",
+                "AUG",
+                "SEP",
+                "OCT",
+                "NOV",
+                "DEC",
+            ]
+
+            var days = [
+                "SUN",
+                "MON",
+                "TUE",
+                "WED",
+                "THUR",
+                "FRI",
+                "SAT",
+            ]
+
+            var ampm = [
+                "am",
+                "pm",
+            ]
+
+
+            var d = new Date();
+            var hr = document.getElementById("hr");
+            var min = document.getElementById("min");
+            var sec = document.getElementById("sec");
+            var day = document.getElementById("day");
+            var date = document.getElementById("date");
+            var month = document.getElementById("month");
+            var year = document.getElementById("year");
+
+            // times
+            hr.innerHTML = d.getHours();
+            min.innerHTML = d.getMinutes();
+            sec.innerHTML = d.getSeconds();
+
+            // month
+            day.innerHTML = days[d.getDay()];
+            date.innerHTML = d.getDate();
+            month.innerHTML = months[d.getMonth()];
+            year.innerHTML = d.getFullYear();
+
+
+
+
+
+
+            if (d.getHours() > 12) {
+                hr.innerHTML = hr.innerHTML - 12;
+            }
+        }, 1000)
+
+    </script>
+
+
+
+
+</body>
+
+</html>
